@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Emme Service &mdash; Audio, Luci &amp; Video Professionali | Vignola (MO)</title>
+<meta name="description" content="Emme Service di Morisi Matteo: service audio, luci e video professionali per eventi live, matrimoni, concerti, club e locali. Noleggio attrezzature e fornitura tecnici. Vignola (MO).">
+<link rel="icon" type="image/png" href="photos/logo2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cyan:#22D3EE;
+  --cyan-dark:#0891B2;
+  --cyan-glow:rgba(34,211,238,0.18);
+  --bg:#050508;
+  --bg2:#08080e;
+  --bg3:#0e0e16;
+  --bg4:#060610;
+  --surface:rgba(255,255,255,0.04);
+  --surface2:rgba(255,255,255,0.07);
+  --border:rgba(34,211,238,0.15);
+  --text:#e8e8f0;
+  --text-dim:#9090a8;
+  --text-dimmer:#5c5c78;
+  --white:#ffffff;
+  --nav-h:72px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--cyan-dark);border-radius:3px}
+
+/* ===== SELECTION ===== */
+::selection{background:rgba(34,211,238,0.25);color:var(--white)}
+
+/* ===== TYPOGRAPHY ===== */
+h1,h2,h3,h4{font-weight:700;line-height:1.15;letter-spacing:-0.02em}
+p{font-weight:300;line-height:1.7}
+
+/* ===== NAVBAR ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;
+  background:rgba(5,5,8,0.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid transparent;
+  transition:border-color 0.3s,background 0.3s;
+}
+.nav.scrolled{border-bottom-color:var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo img{height:38px;width:auto;object-fit:contain;background:rgba(255,255,255,0.9);border-radius:8px;padding:4px 8px}
+.nav-logo span{
+  font-size:1.1rem;font-weight:800;letter-spacing:0.04em;
+  color:var(--white);text-transform:uppercase;
+  display:none;
+}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{
+  font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--text-dim);text-decoration:none;
+  transition:color 0.2s;
+  white-space:nowrap;
+}
+.nav-links a:hover{color:var(--cyan)}
+.nav-cta{
+  display:inline-flex;align-items:center;
+  padding:9px 22px;
+  border:1.5px solid var(--cyan);
+  border-radius:3px;
+  font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--cyan);text-decoration:none;
+  transition:background 0.2s,color 0.2s;
+}
+.nav-cta:hover{background:var(--cyan);color:var(--bg)}
+.hamburger{
+  display:none;flex-direction:column;gap:5px;cursor:pointer;
+  padding:4px;background:none;border:none;
+}
+.hamburger span{
+  display:block;width:24px;height:2px;
+  background:var(--text);
+  transition:transform 0.3s,opacity 0.3s;
+  border-radius:2px;
+}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* mobile menu */
+.mobile-menu{
+  display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;z-index:999;
+  background:rgba(5,5,8,0.97);
+  backdrop-filter:blur(24px);
+  flex-direction:column;align-items:center;justify-content:center;gap:40px;
+  opacity:0;pointer-events:none;transition:opacity 0.3s;
+}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{
+  font-size:1.5rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--text);text-decoration:none;
+  transition:color 0.2s;
+}
+.mobile-menu a:hover{color:var(--cyan)}
+.mobile-menu .nav-cta{font-size:1rem;padding:14px 36px}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;height:100svh;min-height:600px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  text-align:center;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('photos/16.jpeg');
+  background-size:cover;background-position:center;
+  transform:scale(1.08);
+  transition:transform 0.1s linear;
+  will-change:transform;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,
+    rgba(5,5,8,0.62) 0%,
+    rgba(5,5,8,0.42) 40%,
+    rgba(5,5,8,0.55) 70%,
+    rgba(5,5,8,0.92) 100%);
+}
+/* radial glow */
+.hero-glow{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 50% at 50% 60%,rgba(34,211,238,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-content{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:28px;
+  padding:0 20px;
+  animation:heroIn 1.1s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes heroIn{
+  from{opacity:0;transform:translateY(32px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero-logo{
+  height:110px;width:auto;
+  filter:drop-shadow(0 0 24px rgba(34,211,238,0.45));
+  animation:logoGlow 3s ease-in-out infinite alternate;
+}
+@keyframes logoGlow{
+  from{filter:drop-shadow(0 0 16px rgba(34,211,238,0.3))}
+  to{filter:drop-shadow(0 0 36px rgba(34,211,238,0.65))}
+}
+.hero-title{
+  font-size:clamp(2.8rem,8vw,6rem);
+  font-weight:900;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--white);
+  text-shadow:0 2px 40px rgba(0,0,0,0.8);
+  line-height:1;
+}
+.hero-sub{
+  font-size:clamp(0.85rem,2vw,1.1rem);
+  font-weight:600;letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--cyan);
+  opacity:0.9;
+}
+.hero-cta{
+  margin-top:8px;
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 40px;
+  background:transparent;
+  border:2px solid var(--cyan);
+  border-radius:3px;
+  font-size:0.82rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--cyan);text-decoration:none;
+  transition:background 0.25s,color 0.25s,box-shadow 0.25s;
+  position:relative;overflow:hidden;
+}
+.hero-cta::before{
+  content:'';position:absolute;inset:0;
+  background:var(--cyan);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.28s cubic-bezier(0.4,0,0.2,1);
+}
+.hero-cta:hover::before{transform:scaleX(1)}
+.hero-cta:hover{color:var(--bg);box-shadow:0 0 40px rgba(34,211,238,0.3)}
+.hero-cta span{position:relative;z-index:1}
+.hero-cta svg{position:relative;z-index:1;transition:transform 0.25s}
+.hero-cta:hover svg{transform:translateY(4px)}
+
+/* scroll indicator */
+.scroll-ind{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  opacity:0.5;animation:bounce 2.2s ease-in-out infinite;
+}
+@keyframes bounce{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(8px)}
+}
+.scroll-ind span{
+  font-size:0.62rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--cyan);
+}
+
+/* ===== SECTION SHARED ===== */
+.section{padding:100px 0}
+.section.dark{background:var(--bg)}
+.section.darker{background:var(--bg2)}
+.section.darkest{background:var(--bg4)}
+.container{max-width:1280px;margin:0 auto;padding:0 48px}
+
+/* section label */
+.sec-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.68rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--cyan);margin-bottom:16px;
+}
+.sec-label::before{content:'';display:block;width:28px;height:1.5px;background:var(--cyan)}
+
+/* section heading */
+.sec-h2{
+  font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:800;letter-spacing:-0.02em;
+  color:var(--white);margin-bottom:20px;
+}
+.sec-h2 em{font-style:normal;color:var(--cyan)}
+.sec-desc{
+  font-size:1rem;font-weight:300;
+  color:var(--text-dim);max-width:560px;line-height:1.75;
+}
+
+/* ===== SERVIZI ===== */
+.servizio{
+  padding:110px 0;
+  border-top:1px solid rgba(255,255,255,0.04);
+}
+.servizio:nth-child(odd){background:var(--bg)}
+.servizio:nth-child(even){background:var(--bg2)}
+
+.servizio-inner{
+  max-width:1280px;margin:0 auto;padding:0 48px;
+  display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;
+}
+.servizio-inner.rev{grid-template-columns:2fr 1fr}
+.servizio-inner.rev .serv-info{order:2}
+.servizio-inner.rev .serv-grid{order:1}
+
+.serv-info{position:sticky;top:100px}
+.serv-num{
+  font-size:5rem;font-weight:900;letter-spacing:-0.04em;
+  color:rgba(34,211,238,0.09);
+  line-height:1;margin-bottom:-16px;display:block;
+}
+.serv-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--cyan);margin-bottom:20px;
+}
+.serv-label::before{content:'';display:block;width:22px;height:1.5px;background:var(--cyan)}
+.serv-h2{
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  font-weight:800;color:var(--white);
+  margin-bottom:20px;line-height:1.2;
+}
+.serv-desc{
+  font-size:0.95rem;font-weight:300;
+  color:var(--text-dim);line-height:1.8;
+  margin-bottom:28px;
+}
+.serv-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 18px;
+  border:1px solid var(--border);
+  border-radius:100px;
+  font-size:0.7rem;font-weight:600;letter-spacing:0.1em;
+  color:var(--cyan);
+}
+.serv-badge svg{width:14px;height:14px;flex-shrink:0}
+
+/* photo grids */
+.serv-grid{display:grid;gap:10px}
+.serv-grid.g4{grid-template-columns:repeat(2,1fr);grid-auto-rows:220px}
+.serv-grid.g3{grid-template-columns:repeat(2,1fr);grid-auto-rows:240px}
+.serv-grid.g3 .ph-item:first-child{grid-column:1/-1;grid-row-end:span 1}
+
+.ph-item{
+  position:relative;overflow:hidden;border-radius:4px;
+  background:var(--surface);
+  cursor:pointer;
+}
+.ph-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.5s cubic-bezier(0.4,0,0.2,1),filter 0.4s;
+  will-change:transform;
+}
+.ph-item:hover img{transform:scale(1.07);filter:brightness(1.1)}
+.ph-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(5,5,8,0.75) 100%);
+  opacity:0;transition:opacity 0.35s;
+}
+.ph-item:hover .ph-overlay{opacity:1}
+/* border glow on hover */
+.ph-item::after{
+  content:'';position:absolute;inset:0;
+  border:1.5px solid var(--cyan);border-radius:4px;
+  opacity:0;transition:opacity 0.3s;pointer-events:none;
+}
+.ph-item:hover::after{opacity:0.5}
+
+/* ===== STRIPE SEPARATOR ===== */
+.stripe{
+  padding:60px 0;
+  background:linear-gradient(90deg,var(--bg) 0%,rgba(34,211,238,0.04) 50%,var(--bg) 100%);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.stripe-track{
+  display:flex;gap:64px;width:max-content;
+  animation:marquee 22s linear infinite;
+}
+.stripe-track:hover{animation-play-state:paused}
+@keyframes marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+.stripe-item{
+  display:flex;align-items:center;gap:12px;
+  font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--text-dimmer);white-space:nowrap;
+}
+.stripe-item svg{width:16px;height:16px;color:var(--cyan);flex-shrink:0}
+.stripe-item.hl{color:var(--cyan)}
+
+/* ===== STATS BAR ===== */
+.stats-bar{
+  padding:70px 0;
+  background:var(--bg3);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.stats-grid{
+  max-width:1280px;margin:0 auto;padding:0 48px;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+.stat-item{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;padding:24px;
+  border-right:1px solid rgba(255,255,255,0.06);
+}
+.stat-item:last-child{border-right:none}
+.stat-num{
+  font-size:clamp(2.2rem,4vw,3.4rem);
+  font-weight:900;letter-spacing:-0.04em;
+  color:var(--cyan);line-height:1;margin-bottom:8px;
+}
+.stat-unit{font-size:0.7em;font-weight:600;opacity:0.7}
+.stat-label{
+  font-size:0.72rem;font-weight:500;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--text-dimmer);
+}
+
+/* ===== RECENSIONI ===== */
+.rec-section{
+  padding:110px 0;
+  background:var(--bg);
+  position:relative;overflow:hidden;
+}
+.rec-section::before{
+  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:800px;height:500px;
+  background:radial-gradient(ellipse at 50% 0%,rgba(34,211,238,0.05) 0%,transparent 70%);
+  pointer-events:none;
+}
+.rec-header{
+  max-width:1280px;margin:0 auto;padding:0 48px;
+  margin-bottom:64px;
+}
+.rec-grid{
+  max-width:1280px;margin:0 auto;padding:0 48px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.rec-card{
+  padding:36px 32px;
+  background:var(--surface);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:6px;
+  position:relative;overflow:hidden;
+  transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;
+}
+.rec-card::before{
+  content:'\201C';
+  position:absolute;top:-10px;right:20px;
+  font-size:7rem;font-weight:900;line-height:1;
+  color:var(--cyan);opacity:0.08;
+  font-family:Georgia,serif;
+}
+.rec-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--cyan),var(--cyan-dark));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.rec-card:hover{
+  border-color:var(--border);
+  transform:translateY(-5px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 30px rgba(34,211,238,0.06);
+}
+.rec-card:hover::after{transform:scaleX(1)}
+.rec-stars{display:flex;gap:3px;margin-bottom:20px}
+.rec-stars svg{width:16px;height:16px;color:#F59E0B}
+.rec-text{
+  font-size:0.93rem;font-weight:300;
+  color:var(--text);line-height:1.78;
+  margin-bottom:24px;
+  font-style:italic;
+}
+.rec-author{
+  display:flex;align-items:center;gap:12px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.rec-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--cyan-dark),var(--cyan));
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.85rem;font-weight:700;color:var(--bg);flex-shrink:0;
+}
+.rec-name{
+  font-size:0.82rem;font-weight:700;
+  color:var(--white);letter-spacing:0.02em;
+}
+.rec-via{
+  font-size:0.68rem;font-weight:400;
+  color:var(--text-dimmer);letter-spacing:0.05em;
+  margin-top:1px;
+}
+
+/* ===== CONTATTI ===== */
+.contatti{
+  padding:110px 0;
+  background:var(--bg2);
+  position:relative;overflow:hidden;
+}
+.contatti::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(34,211,238,0.04) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cont-inner{
+  max-width:1000px;margin:0 auto;padding:0 48px;
+  text-align:center;
+}
+.cont-title{
+  font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:800;color:var(--white);
+  margin-bottom:12px;
+}
+.cont-sub{
+  font-size:0.95rem;font-weight:300;color:var(--text-dim);
+  margin-bottom:60px;
+}
+.cont-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  margin-bottom:52px;
+}
+.cont-card{
+  padding:36px 24px;
+  background:var(--surface);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:6px;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+  transition:border-color 0.3s,transform 0.3s;
+}
+.cont-card:hover{border-color:var(--border);transform:translateY(-4px)}
+.cont-icon{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(34,211,238,0.1);
+  display:flex;align-items:center;justify-content:center;
+}
+.cont-icon svg{width:22px;height:22px;color:var(--cyan)}
+.cont-card-label{
+  font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--text-dimmer);
+}
+.cont-card-val{
+  font-size:0.95rem;font-weight:600;color:var(--white);
+  text-decoration:none;transition:color 0.2s;
+  word-break:break-all;
+}
+a.cont-card-val:hover{color:var(--cyan)}
+.cont-piva{
+  font-size:0.8rem;font-weight:400;
+  color:var(--text-dimmer);letter-spacing:0.05em;
+}
+
+/* CTA button large */
+.btn-main{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:18px 48px;
+  background:var(--cyan);
+  border-radius:3px;
+  font-size:0.85rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--bg);text-decoration:none;
+  transition:background 0.25s,box-shadow 0.25s,transform 0.2s;
+}
+.btn-main:hover{
+  background:#38e8ff;
+  box-shadow:0 0 50px rgba(34,211,238,0.35);
+  transform:translateY(-2px);
+}
+.btn-main svg{width:20px;height:20px;flex-shrink:0}
+
+/* ===== FOOTER ===== */
+.footer{
+  padding:32px 48px;
+  background:var(--bg);
+  border-top:1px solid rgba(255,255,255,0.04);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+}
+.footer-copy{
+  font-size:0.72rem;font-weight:400;
+  color:var(--text-dimmer);letter-spacing:0.04em;
+}
+.footer-copy strong{color:var(--text-dim)}
+.footer-right{
+  display:flex;align-items:center;gap:24px;
+}
+.footer-right a{
+  font-size:0.72rem;font-weight:500;color:var(--text-dimmer);
+  text-decoration:none;transition:color 0.2s;
+}
+.footer-right a:hover{color:var(--cyan)}
+
+/* ===== FADE-IN ANIMATION ===== */
+.fade{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade.vis{opacity:1;transform:translateY(0)}
+.fade-d1{transition-delay:0.1s}
+.fade-d2{transition-delay:0.2s}
+.fade-d3{transition-delay:0.3s}
+.fade-d4{transition-delay:0.4s}
+.fade-d5{transition-delay:0.5s}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .servizio-inner{grid-template-columns:1fr;gap:50px}
+  .servizio-inner.rev .serv-info{order:0}
+  .servizio-inner.rev .serv-grid{order:0}
+  .serv-info{position:static}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-item:nth-child(2){border-right:none}
+  .stat-item:nth-child(3){border-top:1px solid rgba(255,255,255,0.06)}
+  .rec-grid{grid-template-columns:1fr}
+  .cont-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  :root{--nav-h:62px}
+  .container,.servizio-inner,.rec-header,.rec-grid,.cont-inner,.stats-grid{padding:0 24px}
+  .serv-grid.g4{grid-template-columns:1fr;grid-auto-rows:200px}
+  .serv-grid.g3{grid-template-columns:1fr;grid-auto-rows:200px}
+  .serv-grid.g3 .ph-item:first-child{grid-column:auto}
+  .footer{flex-direction:column;align-items:center;text-align:center;padding:24px}
+  .footer-right{justify-content:center}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .mobile-menu{display:flex}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:0}
+  .stat-item:nth-child(2){border-right:none}
+  .stat-item:nth-child(3){border-right:1px solid rgba(255,255,255,0.06);border-top:1px solid rgba(255,255,255,0.06)}
+  .stat-item:nth-child(4){border-top:1px solid rgba(255,255,255,0.06)}
+  .section{padding:70px 0}
+  .servizio{padding:80px 0}
+}
+@media(max-width:480px){
+  .hero-logo{height:80px}
+  .cont-grid{grid-template-columns:1fr}
+  .stripe-track{gap:40px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="nav" id="nav" role="navigation">
+  <a href="#home" class="nav-logo" aria-label="Emme Service Home">
+    <img src="photos/logo2.png" alt="Logo Emme Service">
+    <span>Emme Service</span>
+  </a>
+  <ul class="nav-links" role="list">
+    <li><a href="#audio-luci">Audio &amp; Luci</a></li>
+    <li><a href="#filodiffusione">Filodiffusione</a></li>
+    <li><a href="#club">Club</a></li>
+    <li><a href="#noleggio">Noleggio</a></li>
+    <li><a href="#tecnici">Tecnici</a></li>
+    <li><a href="#recensioni">Recensioni</a></li>
+    <li><a href="#contatti" class="nav-cta">Contattami</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu di navigazione">
+  <a href="#audio-luci" class="mob-link">Audio &amp; Luci</a>
+  <a href="#filodiffusione" class="mob-link">Filodiffusione</a>
+  <a href="#club" class="mob-link">Club</a>
+  <a href="#noleggio" class="mob-link">Noleggio</a>
+  <a href="#tecnici" class="mob-link">Tecnici</a>
+  <a href="#recensioni" class="mob-link">Recensioni</a>
+  <a href="#contatti" class="mob-link nav-cta">Contattami</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home" aria-label="Hero Emme Service">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <img src="photos/logo2.png" alt="Emme Service Logo" class="hero-logo">
+    <h1 class="hero-title">Emme Service</h1>
+    <p class="hero-sub">Audio &middot; Luci &middot; Video</p>
+    <a href="#servizi" class="hero-cta" style="white-space:nowrap">
+      <span>Scopri i Servizi</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </div>
+  <div class="scroll-ind" aria-hidden="true">
+    <span>Scorri</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9l-7 7-7-7"/></svg>
+  </div>
+</section>
+
+<!-- ===== MARQUEE STRIPE ===== -->
+<div class="stripe" aria-hidden="true">
+  <div class="stripe-track">
+    <!-- repeat x2 for seamless loop -->
+    <div class="stripe-item hl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l2.09 6.26L20 9l-4.91 3.58L16.91 19 12 15.27 7.09 19l1.82-6.42L4 9l5.91.26z"/></svg>Service Audio Professionale</div>
+    <div class="stripe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>Scenografie Luminose</div>
+    <div class="stripe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Video &amp; LED Wall</div>
+    <div class="stripe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Tecnici Esperti</div>
+    <div class="stripe-item hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Filodiffusione</div>
+    <div class="stripe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2M12 12v5"/></svg>Noleggio Attrezzature</div>
+    <div class="stripe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>Impianti Club</div>
+    <!-- repeat -->
+    <div class="stripe-item hl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l2.09 6.26L20 9l-4.91 3.58L16.91 19 12 15.27 7.09 19l1.82-6.42L4 9l5.91.26z"/></svg>Service Audio Professionale</div>
+    <div class="stripe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>Scenografie Luminose</div>
+    <div class="stripe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Video &amp; LED Wall</div>
+    <div class="stripe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Tecnici Esperti</div>
+    <div class="stripe-item hl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Filodiffusione</div>
+    <div class="stripe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2M12 12v5"/></svg>Noleggio Attrezzature</div>
+    <div class="stripe-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>Impianti Club</div>
+  </div>
+</div>
+
+<!-- ===== STATS BAR ===== -->
+<div class="stats-bar" aria-label="Statistiche">
+  <div class="stats-grid">
+    <div class="stat-item fade">
+      <div class="stat-num">5<span class="stat-unit">+</span></div>
+      <div class="stat-label">Anni di Esperienza</div>
+    </div>
+    <div class="stat-item fade fade-d1">
+      <div class="stat-num">100<span class="stat-unit">+</span></div>
+      <div class="stat-label">Eventi Realizzati</div>
+    </div>
+    <div class="stat-item fade fade-d2">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Servizi Specializzati</div>
+    </div>
+    <div class="stat-item fade fade-d3">
+      <div class="stat-num">5<span class="stat-unit">/5</span></div>
+      <div class="stat-label">Valutazione Clienti</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SERVIZI ===== -->
+<div id="servizi">
+
+  <!-- S1: Audio Luci Video -->
+  <section class="servizio" id="audio-luci" aria-labelledby="s1-title">
+    <div class="servizio-inner">
+      <div class="serv-info">
+        <span class="serv-num" aria-hidden="true">01</span>
+        <div class="serv-label" aria-hidden="true">Servizio principale</div>
+        <h2 class="serv-h2 fade" id="s1-title">Service Audio,<br>Luci &amp; Video</h2>
+        <p class="serv-desc fade fade-d1">Impianti professionali per eventi live, concerti, festival e spettacoli. Qualit&agrave; del suono e scenografie luminose su misura per ogni tipo di evento e location.</p>
+        <div class="serv-badge fade fade-d2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Live &middot; Concerti &middot; Festival
+        </div>
+      </div>
+      <div class="serv-grid g4 fade fade-d1" aria-label="Galleria service audio luci video">
+        <div class="ph-item">
+          <img src="photos/16.jpeg" alt="Fasci laser blu a un evento live" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+        <div class="ph-item">
+          <img src="photos/8.jpeg" alt="Impianto audio professionale per concerto" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+        <div class="ph-item">
+          <img src="photos/5.jpeg" alt="Scenografia luminosa per evento" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+        <div class="ph-item">
+          <img src="photos/6.jpeg" alt="Luci colorate su palco" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S2: Filodiffusione -->
+  <section class="servizio" id="filodiffusione" aria-labelledby="s2-title">
+    <div class="servizio-inner rev">
+      <div class="serv-info">
+        <span class="serv-num" aria-hidden="true">02</span>
+        <div class="serv-label" aria-hidden="true">Ambienti</div>
+        <h2 class="serv-h2 fade" id="s2-title">Filodiffusione<br>per Locali</h2>
+        <p class="serv-desc fade fade-d1">Installazione di impianti per la filodiffusione in bar, ristoranti, palestre e locali pubblici. Audio ambiente perfetto, discreto e sempre calibrato per il tuo spazio.</p>
+        <div class="serv-badge fade fade-d2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+          Bar &middot; Ristoranti &middot; Palestre
+        </div>
+      </div>
+      <div class="serv-grid g3 fade fade-d1" aria-label="Galleria filodiffusione per locali">
+        <div class="ph-item">
+          <img src="photos/1.jpeg" alt="Impianto audio per locale" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+        <div class="ph-item">
+          <img src="photos/13.jpeg" alt="Sistema filodiffusione professionale" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+        <div class="ph-item">
+          <img src="photos/11.jpeg" alt="Installazione audio ambiente" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3: Club & Discoteche -->
+  <section class="servizio" id="club" aria-labelledby="s3-title">
+    <div class="servizio-inner">
+      <div class="serv-info">
+        <span class="serv-num" aria-hidden="true">03</span>
+        <div class="serv-label" aria-hidden="true">Nightlife</div>
+        <h2 class="serv-h2 fade" id="s3-title">Impianti per<br>Club &amp; Discoteche</h2>
+        <p class="serv-desc fade fade-d1">Progettazione e installazione di impianti audio e luci per club, discoteche e locali notturni. Un&rsquo;esperienza immersiva garantita, dalla potenza del suono alla magia delle scenografie.</p>
+        <div class="serv-badge fade fade-d2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          Club &middot; Discoteche &middot; Locali
+        </div>
+      </div>
+      <div class="serv-grid g4 fade fade-d1" aria-label="Galleria impianti club e discoteche">
+        <div class="ph-item">
+          <img src="photos/7.jpeg" alt="Luci effetto per discoteca" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+        <div class="ph-item">
+          <img src="photos/11.jpeg" alt="Impianto luci per club" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+        <div class="ph-item">
+          <img src="photos/15.jpeg" alt="Scenografia luminosa notturna" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+        <div class="ph-item">
+          <img src="photos/3.jpeg" alt="Effetti luce colorati per evento" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S4: Noleggio -->
+  <section class="servizio" id="noleggio" aria-labelledby="s4-title">
+    <div class="servizio-inner rev">
+      <div class="serv-info">
+        <span class="serv-num" aria-hidden="true">04</span>
+        <div class="serv-label" aria-hidden="true">Attrezzature</div>
+        <h2 class="serv-h2 fade" id="s4-title">Noleggio<br>Attrezzature</h2>
+        <p class="serv-desc fade fade-d1">Noleggio di casse, luci motorizzate, truss, palchi, LED wall e tutte le attrezzature professionali per lo spettacolo. Parco macchine sempre aggiornato con le ultime tecnologie.</p>
+        <div class="serv-badge fade fade-d2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2M12 12v5"/></svg>
+          Casse &middot; LED Wall &middot; Truss &middot; Palchi
+        </div>
+      </div>
+      <div class="serv-grid g4 fade fade-d1" aria-label="Galleria noleggio attrezzature">
+        <div class="ph-item">
+          <img src="photos/1.jpeg" alt="Casse audio professionali a noleggio" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+        <div class="ph-item">
+          <img src="photos/9.jpeg" alt="Luci motorizzate a noleggio" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+        <div class="ph-item">
+          <img src="photos/12.jpeg" alt="Truss e strutture per eventi" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+        <div class="ph-item">
+          <img src="photos/2.jpeg" alt="Attrezzatura professionale per spettacoli" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S5: Tecnici -->
+  <section class="servizio" id="tecnici" aria-labelledby="s5-title">
+    <div class="servizio-inner">
+      <div class="serv-info">
+        <span class="serv-num" aria-hidden="true">05</span>
+        <div class="serv-label" aria-hidden="true">Team</div>
+        <h2 class="serv-h2 fade" id="s5-title">Fornitura<br>Tecnici Esperti</h2>
+        <p class="serv-desc fade fade-d1">Team di tecnici esperti a disposizione per il tuo evento. Fonici, light designer e tecnici video professionisti che curano ogni dettaglio per garantire un risultato impeccabile.</p>
+        <div class="serv-badge fade fade-d2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          Fonici &middot; Light Designer &middot; Video
+        </div>
+      </div>
+      <div class="serv-grid g3 fade fade-d1" aria-label="Galleria team tecnici">
+        <div class="ph-item">
+          <img src="photos/13.jpeg" alt="Tecnico audio al mixer" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+        <div class="ph-item">
+          <img src="photos/4.jpeg" alt="Light designer al lavoro" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+        <div class="ph-item">
+          <img src="photos/10.jpeg" alt="Tecnico video durante un evento" loading="lazy">
+          <div class="ph-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /servizi -->
+
+<!-- ===== RECENSIONI ===== -->
+<section class="rec-section" id="recensioni" aria-labelledby="rec-title">
+  <div class="rec-header">
+    <div class="sec-label" aria-hidden="true">Cosa dicono di me</div>
+    <h2 class="sec-h2 fade" id="rec-title">Clienti <em>soddisfatti</em></h2>
+    <p class="sec-desc fade fade-d1">Ogni evento &egrave; unico. Il mio impegno &egrave; sempre lo stesso: cura dei dettagli, professionalit&agrave; e risultati che superano le aspettative.</p>
+  </div>
+  <div class="rec-grid" role="list">
+
+    <article class="rec-card fade" role="listitem">
+      <div class="rec-stars" aria-label="5 stelle su 5">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+      </div>
+      <blockquote class="rec-text">&ldquo;Io e il mio moroso abbiamo scelto Matteo per curare l&rsquo;allestimento luci e audio per il nostro matrimonio. Si &egrave; dimostrato sin dalla prima chiacchierata molto disponibile e attento su molti dettagli. &Egrave; riuscito a valorizzare con l&rsquo;illuminazione tutti gli edifici della villa. Sicuramente lo consiglieremo!&rdquo;</blockquote>
+      <footer class="rec-author">
+        <div class="rec-avatar" aria-hidden="true">M</div>
+        <div>
+          <div class="rec-name">Cliente &mdash; Matrimonio</div>
+          <div class="rec-via">Google &middot; 5/5</div>
+        </div>
+      </footer>
+    </article>
+
+    <article class="rec-card fade fade-d2" role="listitem">
+      <div class="rec-stars" aria-label="5 stelle su 5">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+      </div>
+      <blockquote class="rec-text">&ldquo;Ho chiamato Matteo come tecnico per l&rsquo;inaugurazione della nuova sede aziendale. Persona molto precisa e professionale, attenta ai piccoli dettagli ma fondamentali per eventi come questi dove l&rsquo;estetica &egrave; al primo posto.&rdquo;</blockquote>
+      <footer class="rec-author">
+        <div class="rec-avatar" aria-hidden="true">A</div>
+        <div>
+          <div class="rec-name">Cliente &mdash; Evento Aziendale</div>
+          <div class="rec-via">Google &middot; 5/5</div>
+        </div>
+      </footer>
+    </article>
+
+    <article class="rec-card fade fade-d4" role="listitem">
+      <div class="rec-stars" aria-label="5 stelle su 5">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+      </div>
+      <blockquote class="rec-text">&ldquo;Ho scelto Emme Service per curare l&rsquo;illuminazione della sala per il 18esimo di mia figlia. &Egrave; stato tutto perfetto, la sala non sembrava neanche la stessa! Persona molto puntuale e precisa, consigliato!&rdquo;</blockquote>
+      <footer class="rec-author">
+        <div class="rec-avatar" aria-hidden="true">C</div>
+        <div>
+          <div class="rec-name">Cliente &mdash; Festa Privata</div>
+          <div class="rec-via">Google &middot; 5/5</div>
+        </div>
+      </footer>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===== CONTATTI ===== -->
+<section class="contatti" id="contatti" aria-labelledby="cont-title">
+  <div class="cont-inner">
+    <div class="sec-label fade" aria-hidden="true">Parlami del tuo evento</div>
+    <h2 class="cont-title fade" id="cont-title">Contattami</h2>
+    <p class="cont-sub fade fade-d1">Raccontami il tuo progetto: concerti, matrimoni, eventi aziendali, allestimenti. Risponder&ograve; in tempi brevi con una proposta su misura.</p>
+
+    <div class="cont-grid">
+      <div class="cont-card fade">
+        <div class="cont-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006.94 6.94l1.42-1.42a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="cont-card-label">Telefono</div>
+        <a href="tel:+393311177255" class="cont-card-val">+39 331 11 77 255</a>
+      </div>
+      <div class="cont-card fade fade-d2">
+        <div class="cont-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="cont-card-label">Email</div>
+        <a href="mailto:matteo.morisi96@gmail.com" class="cont-card-val">matteo.morisi96@gmail.com</a>
+      </div>
+      <div class="cont-card fade fade-d4">
+        <div class="cont-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="cont-card-label">Sede</div>
+        <span class="cont-card-val" style="cursor:default">Vignola (MO)</span>
+      </div>
+    </div>
+
+    <p class="cont-piva fade">P.IVA 04086100361 &mdash; Emme Service di Morisi Matteo</p>
+
+    <div style="margin-top:40px" class="fade fade-d2">
+      <a href="tel:+393311177255" class="btn-main">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006.94 6.94l1.42-1.42a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Chiamami ora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" role="contentinfo">
+  <p class="footer-copy">
+    &copy; 2026 <strong>Emme Service di Morisi Matteo</strong> &mdash; P.IVA 04086100361 &mdash; Vignola (MO)
+  </p>
+  <div class="footer-right">
+    <a href="tel:+393311177255">+39 331 11 77 255</a>
+    <a href="mailto:matteo.morisi96@gmail.com">matteo.morisi96@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ---- Navbar scroll ---- */
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 40) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  /* ---- Hero parallax ---- */
+  var heroBg = document.getElementById('heroBg');
+  window.addEventListener('scroll', function() {
+    var scrollY = window.scrollY;
+    if (scrollY < window.innerHeight) {
+      heroBg.style.transform = 'scale(1.08) translateY(' + (scrollY * 0.28) + 'px)';
+    }
+  }, { passive: true });
+
+  /* ---- Hamburger menu ---- */
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  var mobLinks = document.querySelectorAll('.mob-link');
+
+  function toggleMenu(open) {
+    hamburger.classList.toggle('open', open);
+    mobileMenu.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  hamburger.addEventListener('click', function() {
+    var isOpen = mobileMenu.classList.contains('open');
+    toggleMenu(!isOpen);
+  });
+
+  for (var i = 0; i < mobLinks.length; i++) {
+    mobLinks[i].addEventListener('click', function() {
+      toggleMenu(false);
+    });
+  }
+
+  /* ---- IntersectionObserver fade-in ---- */
+  var fades = document.querySelectorAll('.fade');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('vis');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    fades.forEach(function(el) { observer.observe(el); });
+  } else {
+    fades.forEach(function(el) { el.classList.add('vis'); });
+  }
+
+})();
+</script>
+</body>
+</html>
