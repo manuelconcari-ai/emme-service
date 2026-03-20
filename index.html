@@ -576,9 +576,9 @@ a.cont-card-val:hover{color:var(--cyan)}
 @media(max-width:768px){
   :root{--nav-h:62px}
   .container,.servizio-inner,.rec-header,.rec-grid,.cont-inner,.stats-grid{padding:0 24px}
-  .serv-grid.g4{grid-template-columns:1fr;grid-auto-rows:200px}
-  .serv-grid.g3{grid-template-columns:1fr;grid-auto-rows:200px}
-  .serv-grid.g3 .ph-item:first-child{grid-column:auto}
+  .serv-grid.g4{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+  .serv-grid.g3{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+  .serv-grid.g3 .ph-item:first-child{grid-column:1/-1}
   .footer{flex-direction:column;align-items:center;text-align:center;padding:24px}
   .footer-right{justify-content:center}
   .nav-links,.nav-cta{display:none}
